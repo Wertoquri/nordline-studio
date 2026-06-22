@@ -10,7 +10,7 @@ import { Accordion } from './components/Accordion';
 import { LeadForm } from './components/LeadForm';
 import { analytics } from './lib/analytics';
 
-const canonicalOrigin = 'https://nordline-studio.vercel.app';
+const canonicalOrigin = 'https://nordline-studio-kyiv.vercel.app';
 function pageHref(locale: Locale, hash: string) { return `${locale === 'en' ? '/en' : ''}${hash}`; }
 function setMeta(config: SiteConfig, path: string) {
   document.documentElement.lang = config.locale;

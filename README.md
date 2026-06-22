@@ -2,7 +2,7 @@
 
 Преміальний багатомовний сайт для студії дизайну інтер’єру та ремонту повного циклу в Києві.
 
-**Live:** [nordline-studio.vercel.app](https://nordline-studio.vercel.app)
+**Live:** [nordline-studio-kyiv.vercel.app](https://nordline-studio-kyiv.vercel.app)
 
 ## Що отримує бізнес
 
