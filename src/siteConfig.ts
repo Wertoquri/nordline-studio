@@ -1,0 +1,93 @@
+export type Locale = 'uk' | 'en';
+export type ProjectType = 'apartment' | 'house' | 'commercial' | 'other';
+export type Project = { id: string; title: string; type: string; area: string; city: string; scope: string; summary: string; image: string; alt: string };
+
+const business = {
+  brand: 'Nordline Studio',
+  phone: '+380 44 000 00 00',
+  phoneHref: '+380440000000',
+  email: 'hello@nordline.studio',
+  socials: [{ label: 'Instagram', href: 'https://instagram.com/' }, { label: 'Pinterest', href: 'https://pinterest.com/' }, { label: 'Behance', href: 'https://behance.net/' }],
+} as const;
+
+const images = {
+  hero: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0',
+  quietLine: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3',
+  oliveRoom: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c',
+  softGeometry: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c',
+  philosophy: 'https://images.unsplash.com/photo-1600566753051-f0b89df2dd90',
+  before: 'https://images.unsplash.com/photo-1560185008-b033106af5c3',
+  after: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7',
+} as const;
+
+export const siteConfigs = {
+  uk: {
+    ...business,
+    locale: 'uk',
+    seo: { title: 'Nordline Studio — дизайн інтер’єру та ремонт у Києві', description: 'Дизайн і реалізація сучасних інтер’єрів у Києві: від планування та бюджету до комплектації й передачі готового простору.' },
+    a11y: { skip: 'До основного вмісту', home: 'Nordline Studio, на головну', nav: 'Основна навігація', openMenu: 'Відкрити меню', closeMenu: 'Закрити меню', language: 'Мова сайту', close: 'Закрити' },
+    nav: [{ label: 'Послуги', href: '#services' }, { label: 'Проєкти', href: '#projects' }, { label: 'Процес', href: '#process' }, { label: 'Контакти', href: '#contact' }],
+    cta: { consultation: 'Консультація', discuss: 'Обговорити проєкт', works: 'Дивитися роботи', similar: 'Обговорити схожий проєкт' },
+    hero: { eyebrow: 'Київ · дизайн та реалізація', title: 'Простір, у якому все на своєму місці.', text: 'Проєктуємо сучасні квартири й камерні бізнес-простори. Фіксуємо рішення, бюджет і відповідальність до початку ремонту.', proof: 'Одна команда веде проєкт — від обмірів до фінального декорування.', image: images.hero, alt: 'Світла вітальня з натуральним деревом і лаконічними меблями', caption: 'Житловий інтер’єр · природне світло · тактильні матеріали' },
+    facts: [{ value: '4–10 міс.', label: 'типовий цикл реалізації' }, { value: 'Київ + 30 км', label: 'зона виїзду команди' }, { value: '5 етапів', label: 'із контрольними точками' }],
+    sections: { services: 'Послуги', servicesTitle: 'Від задуму до простору, готового до життя.', projects: 'Вибрані проєкти', projectsTitle: 'Рішення, сформовані контекстом.', process: 'Процес', processTitle: 'Зрозумілий маршрут без сліпих зон.', faq: 'FAQ', faqTitle: 'До першої зустрічі.' },
+    services: [
+      { n: '01', title: 'Концепція інтер’єру', text: 'Планування, стилістичний напрям, матеріали й попередній бюджет.', price: 'від 900 ₴ / м²' },
+      { n: '02', title: 'Повний дизайн-проєкт', text: 'Візуалізації, робочі креслення та специфікації для точної реалізації.', price: 'від 1 800 ₴ / м²' },
+      { n: '03', title: 'Реалізація під ключ', text: 'Кошторис, закупівлі, ремонтні роботи, контроль строків і якості.', price: 'після аудиту об’єкта' },
+      { n: '04', title: 'Авторський супровід', text: 'Регулярні виїзди, узгодження з підрядниками та контроль відповідності.', price: 'від 28 000 ₴ / міс.' },
+    ],
+    projects: [
+      { id: 'quiet-line', title: 'Тиха лінія', type: 'Квартира для пари', area: '82 м²', city: 'Київ, Печерськ', scope: 'Повний цикл', summary: 'Збалансували відкриту денну зону з приватним блоком, сховали інженерію та побудували палітру на дубі, травертині й тактильному текстилі.', image: images.quietLine, alt: 'Мінімалістична кухня-вітальня у природних відтінках' },
+      { id: 'olive-room', title: 'Olive Room', type: 'Камерне бістро', area: '116 м²', city: 'Київ, Поділ', scope: 'Дизайн + супровід', summary: 'Створили 42 посадкові місця без відчуття щільності. Акустичні поверхні, тепле локальне світло та відкрита барна зона задають спокійний ритм.', image: images.oliveRoom, alt: 'Сучасний інтер’єр камерного ресторану' },
+      { id: 'soft-geometry', title: 'М’яка геометрія', type: 'Сімейна квартира', area: '124 м²', city: 'Київ, Голосіїв', scope: 'Проєкт + комплектація', summary: 'Перепланували простір для родини з двома дітьми, додали місткі вбудовані системи й зносостійкі матеріали без візуального компромісу.', image: images.softGeometry, alt: 'Простора вітальня з округлими меблями' },
+    ] satisfies Project[],
+    projectModal: { location: 'Локація', scope: 'Обсяг робіт' },
+    process: [{ n: '01', title: 'Знайомство', text: 'Бриф, дзвінок і первинна оцінка задачі.' }, { n: '02', title: 'Аудит', text: 'Обміри, технічні обмеження, рамка бюджету.' }, { n: '03', title: 'Проєкт', text: 'Планування, візуальна концепція, креслення.' }, { n: '04', title: 'Реалізація', text: 'Закупівлі, роботи, авторський і технічний контроль.' }, { n: '05', title: 'Передача', text: 'Фінальна перевірка, документація та готовий простір.' }],
+    comparison: { eyebrow: 'Трансформація', title: 'Менше візуального шуму. Більше повітря й функції.', text: 'Перетягніть розділювач або керуйте ним стрілками на клавіатурі.', before: 'До', after: 'Після', label: 'Положення розділювача до і після', beforeAlt: 'Простір до оновлення', afterAlt: 'Простір після оновлення', beforeImage: images.before, afterImage: images.after },
+    philosophy: { eyebrow: 'Наш підхід', title: 'Не декоруємо хаос. Спочатку вибудовуємо логіку.', text: 'Добрий інтер’єр починається не з референсів, а зі сценаріїв життя, обмежень об’єкта й чесного бюджету. Ми скорочуємо кількість випадкових рішень — щоб простір залишався актуальним довше.', notes: ['Функція перед ефектом', 'Матеріали, що гідно старіють', 'Прозорі рішення й контрольні точки'], image: images.philosophy, alt: 'Деталь інтер’єру з натурального каменю та дерева' },
+    clientPriorities: { eyebrow: 'Сервіс', title: 'Що важливо власникам.', text: 'Наш формат роботи побудований навколо двох речей: прогнозованості процесу та цілісності результату.', items: [{ title: 'Контроль', text: 'Кожне рішення пояснюємо мовою бюджету, строків і подальшої експлуатації.' }, { title: 'Цілісність', text: 'Ведемо проєкт від планування до комплектації, щоб задум не розсипався на окремі компроміси.' }] },
+    faqs: [{ q: 'Коли варто звертатися до студії?', a: 'Оптимально — до купівлі чистових матеріалів і початку демонтажу. Для новобудови можна починати за 2–4 місяці до отримання ключів.' }, { q: 'Чи працюєте ви з фіксованим бюджетом?', a: 'Так. На старті визначаємо бюджетну рамку, а після концепції формуємо деталізований кошторис. Зміни погоджуються до замовлення.' }, { q: 'Можна замовити лише дизайн-проєкт?', a: 'Так. Передаємо повний комплект креслень і специфікацій. Для складних об’єктів радимо авторський супровід.' }, { q: 'Чи берете комерційні простори?', a: 'Так, працюємо з невеликими ресторанами, салонами, офісами та шоурумами орієнтовно до 500 м².' }],
+    consultation: { eyebrow: 'Почати проєкт', title: 'Розкажіть, який простір ви плануєте.', text: 'Поставимо уточнювальні запитання, оцінимо формат співпраці та запропонуємо наступний крок. Без нав’язливих дзвінків.' },
+    form: { name: 'Ім’я', contact: 'Телефон або месенджер', contactPlaceholder: '+380 або @username', projectType: 'Тип проєкту', choose: 'Оберіть варіант', area: 'Орієнтовна площа, м²', areaPlaceholder: '85', message: 'Коротко про задачу', optional: '(необов’язково)', consent: 'Надсилаючи форму, ви погоджуєтеся з', privacy: 'політикою конфіденційності', submit: 'Надіслати запит', submitting: 'Надсилання', successEyebrow: 'Запит отримано', successTitle: 'Дякуємо. Зв’яжемося з вами протягом робочого дня.', next: 'Що буде далі →', serverError: 'Не вдалося надіслати форму. Спробуйте ще раз або зателефонуйте нам.', errors: { name: 'Вкажіть ім’я', contact: 'Вкажіть телефон або месенджер', contactInvalid: 'Перевірте контакт', projectType: 'Оберіть тип проєкту', area: 'Вкажіть орієнтовну площу', areaInvalid: 'Наприклад: 85', message: 'До 1000 символів' }, options: [{ value: 'apartment', label: 'Квартира' }, { value: 'house', label: 'Будинок' }, { value: 'commercial', label: 'Комерційний простір' }, { value: 'other', label: 'Інше' }] },
+    contactBlock: { eyebrow: 'Контакти', title: 'Київ — наша базова географія.', work: 'Працюємо', meetings: 'Зустрічі', social: 'Соціальні мережі', area: 'Київ та передмістя до 30 км', hours: 'Пн–Пт, 10:00–18:30', address: 'За попереднім записом', map: 'Схематична карта з позначкою Києва', city: 'КИЇВ' },
+    legal: { privacyTitle: 'Політика конфіденційності', privacyIntro: 'Ми використовуємо дані із форми лише для відповіді на ваш запит і підготовки консультації.', dataTitle: 'Які дані збираються', dataText: 'Ім’я, контакт, тип і орієнтовна площа проєкту, а також повідомлення, яке ви добровільно надсилаєте через форму.', purposeTitle: 'Навіщо вони потрібні', purposeText: 'Виключно для відповіді на запит і підготовки консультації. Дані не продаються третім особам.', storageTitle: 'Зберігання та видалення', storageText: 'Ви можете запросити видалення своїх даних, звернувшись на електронну адресу студії.', home: '← На головну', thanksTitle: 'Дякуємо за звернення.', thanksText: 'Запит уже в роботі. Ми зв’яжемося з вами протягом одного робочого дня, уточнимо задачу та домовимося про коротку онлайн-зустріч.', back: 'Повернутися на головну' },
+    footer: { privacy: 'Конфіденційність', descriptor: 'Дизайн інтер’єру та реалізація · Київ' },
+  },
+  en: {
+    ...business,
+    locale: 'en',
+    seo: { title: 'Nordline Studio — interior design and renovation in Kyiv', description: 'Interior design and full-cycle renovation for modern apartments and boutique commercial spaces in Kyiv.' },
+    a11y: { skip: 'Skip to main content', home: 'Nordline Studio, home', nav: 'Main navigation', openMenu: 'Open menu', closeMenu: 'Close menu', language: 'Site language', close: 'Close' },
+    nav: [{ label: 'Services', href: '#services' }, { label: 'Projects', href: '#projects' }, { label: 'Process', href: '#process' }, { label: 'Contacts', href: '#contact' }],
+    cta: { consultation: 'Consultation', discuss: 'Discuss a project', works: 'View projects', similar: 'Discuss a similar project' },
+    hero: { eyebrow: 'Kyiv · design and delivery', title: 'A space where everything belongs.', text: 'We design contemporary apartments and boutique business spaces. Decisions, budget and responsibilities are defined before construction starts.', proof: 'One team leads the project — from site measurements to final styling.', image: images.hero, alt: 'Bright living room with natural timber and understated furniture', caption: 'Residential interior · natural light · tactile materials' },
+    facts: [{ value: '4–10 mo.', label: 'typical delivery cycle' }, { value: 'Kyiv + 30 km', label: 'studio service area' }, { value: '5 stages', label: 'with review checkpoints' }],
+    sections: { services: 'Services', servicesTitle: 'From the first idea to a finished space.', projects: 'Selected projects', projectsTitle: 'Solutions shaped by context.', process: 'Process', processTitle: 'A clear route with no blind spots.', faq: 'FAQ', faqTitle: 'Before our first meeting.' },
+    services: [
+      { n: '01', title: 'Interior concept', text: 'Planning, visual direction, material palette and preliminary budget.', price: 'from ₴900 / m²' },
+      { n: '02', title: 'Full design package', text: 'Visualisations, construction drawings and specifications for accurate delivery.', price: 'from ₴1,800 / m²' },
+      { n: '03', title: 'Turnkey delivery', text: 'Cost plan, procurement, construction, schedule and quality control.', price: 'after site audit' },
+      { n: '04', title: 'Design supervision', text: 'Regular site visits, contractor coordination and design compliance checks.', price: 'from ₴28,000 / mo.' },
+    ],
+    projects: [
+      { id: 'quiet-line', title: 'Quiet Line', type: 'Apartment for two', area: '82 m²', city: 'Kyiv, Pechersk', scope: 'Full-cycle delivery', summary: 'We balanced an open living area with a private suite, concealed the engineering systems and built the palette around oak, travertine and tactile textiles.', image: images.quietLine, alt: 'Minimal kitchen and living space in natural shades' },
+      { id: 'olive-room', title: 'Olive Room', type: 'Boutique bistro', area: '116 m²', city: 'Kyiv, Podil', scope: 'Design + supervision', summary: 'We created 42 covers without making the room feel crowded. Acoustic surfaces, warm local lighting and an open bar establish a calm rhythm.', image: images.oliveRoom, alt: 'Contemporary boutique restaurant interior' },
+      { id: 'soft-geometry', title: 'Soft Geometry', type: 'Family apartment', area: '124 m²', city: 'Kyiv, Holosiiv', scope: 'Design + procurement', summary: 'The layout was rebuilt for a family of four, with generous integrated storage and durable materials that do not compromise the visual language.', image: images.softGeometry, alt: 'Spacious living room with soft geometric furniture' },
+    ] satisfies Project[],
+    projectModal: { location: 'Location', scope: 'Scope' },
+    process: [{ n: '01', title: 'Introduction', text: 'Brief, discovery call and initial project assessment.' }, { n: '02', title: 'Audit', text: 'Measurements, technical constraints and budget framework.' }, { n: '03', title: 'Design', text: 'Planning, visual concept and construction documentation.' }, { n: '04', title: 'Delivery', text: 'Procurement, construction and design quality control.' }, { n: '05', title: 'Handover', text: 'Final inspection, documentation and a finished space.' }],
+    comparison: { eyebrow: 'Transformation', title: 'Less visual noise. More space and function.', text: 'Drag the divider or use the keyboard arrow keys.', before: 'Before', after: 'After', label: 'Before and after divider position', beforeAlt: 'Space before renovation', afterAlt: 'Space after renovation', beforeImage: images.before, afterImage: images.after },
+    philosophy: { eyebrow: 'Our approach', title: 'We do not decorate chaos. We establish logic first.', text: 'A strong interior begins with daily routines, site constraints and an honest budget — not a moodboard. We reduce accidental decisions so the space remains relevant for longer.', notes: ['Function before effect', 'Materials that age well', 'Transparent decisions and checkpoints'], image: images.philosophy, alt: 'Interior detail in natural stone and timber' },
+    clientPriorities: { eyebrow: 'Service', title: 'What matters to owners.', text: 'Our process is built around two priorities: predictable delivery and a coherent final result.', items: [{ title: 'Control', text: 'Every decision is explained through its effect on budget, schedule and long-term use.' }, { title: 'Coherence', text: 'We lead the project from planning through procurement so the concept does not dissolve into disconnected compromises.' }] },
+    faqs: [{ q: 'When should I contact the studio?', a: 'Ideally before purchasing finish materials or starting demolition. For a new-build apartment, work can begin 2–4 months before handover.' }, { q: 'Can you work within a fixed budget?', a: 'Yes. We establish the budget framework at the start and prepare a detailed cost plan after the concept stage. Changes are approved before ordering.' }, { q: 'Can I order only the design package?', a: 'Yes. You receive the full set of drawings and specifications. We recommend design supervision for technically complex projects.' }, { q: 'Do you take commercial projects?', a: 'Yes. We work with boutique restaurants, salons, offices and showrooms of approximately up to 500 m².' }],
+    consultation: { eyebrow: 'Start a project', title: 'Tell us about the space you are planning.', text: 'We will ask a few focused questions, assess the right working format and suggest a clear next step. No unsolicited follow-ups.' },
+    form: { name: 'Name', contact: 'Phone or messenger', contactPlaceholder: '+380 or @username', projectType: 'Project type', choose: 'Select an option', area: 'Approximate area, m²', areaPlaceholder: '85', message: 'Tell us about the project', optional: '(optional)', consent: 'By submitting this form, you agree to the', privacy: 'privacy policy', submit: 'Send enquiry', submitting: 'Sending', successEyebrow: 'Enquiry received', successTitle: 'Thank you. We will contact you within one business day.', next: 'What happens next →', serverError: 'The form could not be sent. Please try again or call us.', errors: { name: 'Enter your name', contact: 'Enter a phone number or messenger', contactInvalid: 'Check the contact details', projectType: 'Select a project type', area: 'Enter the approximate area', areaInvalid: 'For example: 85', message: 'Maximum 1000 characters' }, options: [{ value: 'apartment', label: 'Apartment' }, { value: 'house', label: 'House' }, { value: 'commercial', label: 'Commercial space' }, { value: 'other', label: 'Other' }] },
+    contactBlock: { eyebrow: 'Contacts', title: 'Kyiv is our core service area.', work: 'Service area', meetings: 'Meetings', social: 'Social', area: 'Kyiv and suburbs within 30 km', hours: 'Mon–Fri, 10:00–18:30', address: 'By appointment', map: 'Schematic map showing Kyiv', city: 'KYIV' },
+    legal: { privacyTitle: 'Privacy policy', privacyIntro: 'We use the information submitted through the form only to respond to your enquiry and prepare a consultation.', dataTitle: 'Information we collect', dataText: 'Your name, contact details, project type, approximate area and any message you choose to send.', purposeTitle: 'How it is used', purposeText: 'Only to respond to your enquiry and prepare a consultation. We do not sell personal data to third parties.', storageTitle: 'Storage and deletion', storageText: 'You may request deletion of your information by contacting the studio by email.', home: '← Back to home', thanksTitle: 'Thank you for your enquiry.', thanksText: 'Your request is in our queue. We will contact you within one business day, clarify the brief and arrange a short online meeting.', back: 'Return to home' },
+    footer: { privacy: 'Privacy', descriptor: 'Interior design and delivery · Kyiv' },
+  },
+} as const;
+
+export type SiteConfig = typeof siteConfigs.uk | typeof siteConfigs.en;
+export function localizedPath(locale: Locale, path = '/') { const clean = path.replace(/^\/en(?=\/|$)/, '') || '/'; return locale === 'en' ? `/en${clean === '/' ? '' : clean}` : clean; }

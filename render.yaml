@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nordline-studio
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm run server
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: CORS_ORIGIN
+        sync: false
+      - key: LEAD_WEBHOOK_URL
+        sync: false
